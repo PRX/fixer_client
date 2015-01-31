@@ -53,7 +53,7 @@ module Fixer
         connection.request :url_encoded
         connection.response :logger if options[:debug]
         connection.adapter adapter
-      end.password.get_token(username, password)
+      end.client_credentials.get_token
     end
   end
 end

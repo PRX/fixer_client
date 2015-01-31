@@ -6,8 +6,6 @@ module Fixer
     VALID_OPTIONS_KEYS = [
       :client_id,
       :client_secret,
-      :username,
-      :password,
       :adapter,
       :endpoint,
       :user_agent,
@@ -49,8 +47,6 @@ module Fixer
     def reset!
       self.client_id     = nil
       self.client_secret = nil
-      self.username      = nil
-      self.password      = nil
       self.adapter       = DEFAULT_ADAPTER
       self.endpoint      = DEFAULT_ENDPOINT
       self.user_agent    = DEFAULT_USER_AGENT

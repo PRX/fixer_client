@@ -8,6 +8,7 @@ require 'fixer/api'
 require 'fixer/api_factory'
 require 'fixer/client'
 require 'fixer/jobs'
+require 'dotenv'
 
 module Fixer
   extend Configuration

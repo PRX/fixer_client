@@ -45,13 +45,12 @@ module Fixer
 
     # Reset configuration options to their defaults
     def reset!
-      self.client_id     = nil
-      self.client_secret = nil
+      self.client_id     = ENV['FIXER_CLIENT_ID']
+      self.client_secret = ENV['FIXER_CLIENT_SECRET']
       self.adapter       = DEFAULT_ADAPTER
       self.endpoint      = DEFAULT_ENDPOINT
       self.user_agent    = DEFAULT_USER_AGENT
       self
     end
-
   end
 end

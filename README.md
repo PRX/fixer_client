@@ -31,7 +31,7 @@ puts ENV['FIXER_CLIENT_SECRET'] + " is the secret"
 
 # or set them explicitly
 
-Fixer::Client.configure do |c|
+Fixer.configure do |c|
   c.client_id = ''
   c.client_secret = ''
   c.endpoint = 'http://fixer.prx.dev/api/' # default

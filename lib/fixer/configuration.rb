@@ -48,7 +48,7 @@ module Fixer
       self.client_id     = ENV['FIXER_CLIENT_ID']
       self.client_secret = ENV['FIXER_CLIENT_SECRET']
       self.adapter       = DEFAULT_ADAPTER
-      self.endpoint      = DEFAULT_ENDPOINT
+      self.endpoint      = ENV['FIXER_ENDPOINT'] || DEFAULT_ENDPOINT
       self.user_agent    = DEFAULT_USER_AGENT
       self
     end

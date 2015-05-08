@@ -11,4 +11,5 @@
 *.so
 *.o
 *.a
-.env-fixer_client
+.env*
+.ruby-version

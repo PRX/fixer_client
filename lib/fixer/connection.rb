@@ -23,7 +23,7 @@ module Fixer
           'User-Agent'   => user_agent,
           'Accept'       => "application/json;charset=utf-8"
         },
-        ssl: {verify: false},
+        ssl: { verify: false },
         url: endpoint
       }.merge(opts)
       options[:headers] = options[:headers].merge(headers)

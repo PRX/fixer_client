@@ -1,3 +1,6 @@
+require 'dotenv'
+Dotenv.load '.env-fixer_client'
+
 require 'fixer_client'
 
 Fixer.configure do |c|

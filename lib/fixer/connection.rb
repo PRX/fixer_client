@@ -20,8 +20,8 @@ module Fixer
       options = {
         headers: {
           # generic http headers
-          'User-Agent'   => user_agent,
-          'Accept'       => "application/json;charset=utf-8"
+          'User-Agent' => user_agent,
+          'Accept'     => 'application/json;charset=utf-8'
         },
         ssl: { verify: false },
         url: endpoint
@@ -38,7 +38,7 @@ module Fixer
     def connection(options={})
       Faraday::Connection.new(process_options(options)) do |connection|
         connection.request :authorization, 'Bearer', get_token(options).token
-        connection.request :url_encoded
+        connection.request :json
         connection.response :mashify
         connection.response :logger if options[:debug]
         connection.response :json

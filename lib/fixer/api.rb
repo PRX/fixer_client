@@ -76,12 +76,12 @@ module Fixer
 
     def create(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:post, base_path, {data: params})
+      request(:post, base_path, { data: params } )
     end
 
     def update(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:put, base_path, {data: params})
+      request(:put, base_path, { data: params } )
     end
 
     def delete(params={})

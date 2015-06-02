@@ -31,10 +31,6 @@ module Fixer
       options.select{|k,v| ALLOWED_OPTIONS.include?(k.to_sym)}
     end
 
-    def connection(opts={})
-      @token ||= get_token(opts)
-    end
-
     def connection(options={})
       Faraday::Connection.new(process_options(options)) do |connection|
         connection.request :authorization, 'Bearer', get_token(options).token

@@ -1,6 +1,12 @@
-# FixerClient
+# Fixer Client
 
-Client lib for the fixer application.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/PRX/fixer_client.svg?branch=master)](https://travis-ci.org/PRX/fixer_client)
+[![Code Climate](https://codeclimate.com/github/PRX/fixer_client/badges/gpa.svg)](https://codeclimate.com/github/PRX/fixer_client)
+[![Coverage Status](https://coveralls.io/repos/PRX/fixer_client/badge.svg?branch=master)](https://coveralls.io/r/PRX/fixer_client?branch=master)
+[![Dependency Status](https://gemnasium.com/PRX/fixer_client.svg)](https://gemnasium.com/PRX/fixer_client)
+
+Client gem for the [Fixer](https://github.com/PRX/fixer.prx.org) application.
 
 ## Installation
 
@@ -75,6 +81,9 @@ job = {
 j = client.jobs.create(job)
 
 ```
+
+## License
+[The MIT License](http://opensource.org/licenses/MIT)
 
 ## Contributing
 

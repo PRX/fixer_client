@@ -17,10 +17,18 @@ job = {
     original: 's3://test-fixer/audio.wav',
     job_type: 'audio',
     tasks: [
-      {
-        task_type: 'transcode',
-        options: { format: 'mp3', bit_rate: 64, sample_rate: 44100 },
-        result: 's3://test-fixer/audio.mp3'
+      sequence: {
+        tasks: [
+          {
+            task_type: 'cut',
+            options: { length: 30, fade: 0 }
+          },
+          {
+            task_type: 'transcode',
+            options: { format: 'mp3', bit_rate: 64, sample_rate: 44100 },
+            result: 's3://test-fixer/audio.mp3'
+          }
+        ]
       }
     ]
   }

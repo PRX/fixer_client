@@ -2,11 +2,12 @@ require 'dotenv'
 Dotenv.load '.env-fixer_client'
 
 require 'fixer_client'
+Fixer.reset!
 
 Fixer.configure do |c|
-  c.client_id = 'yourclientid'
-  c.client_secret = 'yoursecret'
-  c.endpoint = 'http://fixer.prx.dev/api/' # default
+  c.client_id = ENV['FIXER_CLIENT_ID']
+  c.client_secret = ENV['FIXER_CLIENT_SECRET']
+  c.endpoint = 'http://fixer.prx.dev/api/'
 end
 
 client = Fixer::Client.new

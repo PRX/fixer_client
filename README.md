@@ -87,6 +87,18 @@ j = client.jobs.create(job)
 
 ## Contributing
 
+In a local development environment, you can use a `.env-fixer_client` file that will be loaded to set the required environment variables.
+
+For example:
+```
+touch .env-fixer_client
+echo FIXER_CLIENT_ID=1111111111111111111111111111111111111111111111111111111111111111 >> .env-fixer_client
+echo FIXER_CLIENT_SECRET=2222222222222222222222222222222222222222222222222222222222222222 >> .env-fixer_client
+
+# you can also set useful values like this for debugging
+echo EXCON_DEBUG=true
+```
+
 1. Fork it ( https://github.com/[my-github-username]/fixer_client/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)

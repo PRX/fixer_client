@@ -3,6 +3,14 @@
 require 'simplecov'
 SimpleCov.start
 
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
+ENV['FIXER_CLIENT_ID']     = '1111111111111111111111111111111111111111111111111111111111111111'
+ENV['FIXER_CLIENT_SECRET'] = '2222222222222222222222222222222222222222222222222222222222222222'
+
 require 'dotenv'
 Dotenv.load '.env-fixer_client'
 

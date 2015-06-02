@@ -8,7 +8,7 @@ module Fixer
       :client_secret,
       :adapter,
       :endpoint,
-      :user_agent,
+      :user_agent
     ].freeze
 
     # Adapters are whatever Faraday supports - I like excon alot, so I'm defaulting it

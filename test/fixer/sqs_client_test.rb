@@ -49,10 +49,14 @@ describe Fixer::SqsClient do
     client.must_be_instance_of Fixer::SqsClient
   end
 
-  it 'creates a complex job' do
+  it 'sets config' do
+    client.client_id.must_equal '1111111111111111111111111111111111111111111111111111111111111111'
+  end
+
+  it 'creates a complex job, sets id and client id' do
     client.sqs = sqs
     j = client.create_job(job_params)
-    j.id.wont_be_nil
-    j.client_id.wont_be_nil
+    j[:job][:id].wont_be_nil
+    j[:job][:client_id].wont_be_nil
   end
 end

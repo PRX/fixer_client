@@ -4,7 +4,6 @@ require 'aws-sdk-core'
 
 module Fixer
   class SqsClient
-
     include Configuration
 
     attr_accessor *Fixer::Configuration.keys

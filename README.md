@@ -51,7 +51,6 @@ require 'fixer_client'
 
 client = Fixer::Client.new
 
-
 # list jobs
 js = client.jobs.list
 
@@ -80,6 +79,47 @@ job = {
 }
 j = client.jobs.create(job)
 
+```
+
+You can also create jobs by dropping them on an SQS queue (assuming your fixer server is so configured):
+See the `examples/sqs_client.rb`:
+```
+Fixer.configure do |c|
+
+  # required: client_id identifies the application for this job
+  c.client_id = ''
+  c.client_secret = ''
+
+  # this is the default value
+  c.queue = 'production_fixer_job_create'
+
+  # optional: aws-sdk-core gem's config can be ENV vars, or in Fixer
+  c.aws = {
+    access_key_id: '',
+    secret_access_key: '',
+    region: 'us-east-1'
+  }
+end
+
+client = Fixer::SqsClient.new
+
+job = {
+  job: {
+    original: 's3://test-fixer/audio.wav',
+    job_type: 'audio',
+    tasks: [
+      {
+        task_type: 'transcode',
+        options: { format: 'mp3', bit_rate: 64, sample_rate: 44100 },
+        result: 's3://test-fixer/audio.mp3'
+      }
+    ]
+  }
+}
+
+# if not present, id is assigned to a GUID before sending to SQS
+new_job = client.create_job(job)
+puts "new job created with id: #{new_job.id}"
 ```
 
 ## License

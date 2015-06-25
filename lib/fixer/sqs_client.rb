@@ -35,7 +35,7 @@ module Fixer
     end
 
     def apply_options(options = {})
-      current_options = Fixer.options.with_indifferent_access
+      current_options = Fixer.options.merge(options).with_indifferent_access
       Fixer::Configuration.keys.each do |key|
         send("#{key}=", current_options[key])
       end

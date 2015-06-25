@@ -3,7 +3,6 @@
 require 'minitest_helper'
 
 describe Fixer::SqsClient do
-
   let(:client) { Fixer::SqsClient.new }
 
   let(:job_params) do
@@ -53,5 +52,7 @@ describe Fixer::SqsClient do
   it 'creates a complex job' do
     client.sqs = sqs
     j = client.create_job(job_params)
+    j.id.wont_be_nil
+    j.client_id.wont_be_nil
   end
 end

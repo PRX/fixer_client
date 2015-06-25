@@ -7,9 +7,7 @@ module Fixer
 
     include Configuration
 
-    attr_reader *Fixer::Configuration.keys
-
-    attr_accessor :current_options
+    attr_accessor *Fixer::Configuration.keys
 
     def create_job(job, opts = {})
       job[:job][:id] ||= SecureRandom.uuid
@@ -31,22 +29,14 @@ module Fixer
       @sqs = sqs
     end
 
-    class_eval do
-      Fixer::Configuration.keys.each do |key|
-        define_method "#{key}=" do |arg|
-          self.instance_variable_set("@#{key}", arg)
-        end
-      end
-    end
-
-    def initialize(options={}, &block)
+    def initialize(options = {})
       apply_options(options)
       yield(self) if block_given?
     end
 
-    def apply_options(options={})
-      self.current_options ||= ActiveSupport::HashWithIndifferentAccess.new(Fixer.options)
-      Configuration.keys.each do |key|
+    def apply_options(options = {})
+      current_options = Fixer.options.with_indifferent_access
+      Fixer::Configuration.keys.each do |key|
         send("#{key}=", current_options[key])
       end
     end

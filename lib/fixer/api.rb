@@ -19,13 +19,13 @@ module Fixer
       end
     end
 
-    def initialize(options={}, &block)
+    def initialize(options = {})
       apply_options(options)
       yield(self) if block_given?
     end
 
-    def apply_options(options={})
-      self.current_options ||= ActiveSupport::HashWithIndifferentAccess.new(Fixer.options)
+    def apply_options(options = {})
+      self.current_options ||= Fixer.options.with_indifferent_access
       self.current_options = current_options.merge(args_to_options(options))
       Configuration.keys.each do |key|
         send("#{key}=", current_options[key])

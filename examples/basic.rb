@@ -29,4 +29,5 @@ job = {
   }
 }
 
-j = client.jobs.create(job)
+new_job = client.jobs.create(job)
+puts "new job created: #{new_job.inspect}"

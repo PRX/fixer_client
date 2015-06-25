@@ -8,7 +8,9 @@ module Fixer
       :client_secret,
       :adapter,
       :endpoint,
-      :user_agent
+      :user_agent,
+      :aws,
+      :queue
     ].freeze
 
     # Adapters are whatever Faraday supports - I like excon alot, so I'm defaulting it
@@ -19,6 +21,9 @@ module Fixer
 
     # The value sent in the http header for 'User-Agent' if none is set
     DEFAULT_USER_AGENT = "Fixer Ruby Gem #{Fixer::VERSION}".freeze
+
+    # sqs queue to write messages
+    DEFAULT_QUEUE = 'production_fixer_job_create'.freeze
 
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -50,6 +55,8 @@ module Fixer
       self.adapter       = DEFAULT_ADAPTER
       self.endpoint      = ENV['FIXER_ENDPOINT'] || DEFAULT_ENDPOINT
       self.user_agent    = DEFAULT_USER_AGENT
+      self.aws           = nil
+      self.queue         = ENV['FIXER_QUEUE'] || DEFAULT_QUEUE
       self
     end
   end

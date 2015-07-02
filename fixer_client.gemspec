@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['andrew@prx.org']
   spec.summary       = %q{Client for the fixer application.}
   spec.description   = %q{Client for the fixer application.}
-  spec.homepage      = 'https://github.org/PRX/fixer_client'
+  spec.homepage      = 'https://github.com/PRX/fixer_client'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")

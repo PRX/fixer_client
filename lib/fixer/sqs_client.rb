@@ -20,8 +20,8 @@ module Fixer
       job
     end
 
-    def sqs(options = nil)
-      @sqs ||= Aws::SQS::Client.new(options)
+    def sqs(opts = {})
+      @sqs ||= Aws::SQS::Client.new(opts)
     end
 
     def sqs=(sqs)
